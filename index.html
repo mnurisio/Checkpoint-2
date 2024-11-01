@@ -33,19 +33,19 @@
                 <div class="col-2 text-center align-items-center bg-light border border-dark">
                     <div class="row justify-content-between bg-light">
                         <i class="col-6 mdi mdi-cursor-pointer align-items-center p-3"></i>
-                        <p class="col-6 m-0 align-items-center p-3">+ <span>1</span></p>
+                        <p class="col-6 m-0 align-items-center p-3">+ <span id="clickModifier">1</span></p>
                     </div>
                 </div>
                 <div class="col-4 text-center align-items-center border border-dark">
                     <div class="row justify-content-between bg-light">
-                        <i class="col-6 mdi mdi-music align-items-center p-3"></i>
+                        <i class="col-6 mdi mdi-music-note-half align-items-center p-3"></i>
                         <p id="vinyl" class="col-6 m-0 align-items-center p-3">0</p>
                     </div>
                 </div>
                 <div class="col-2 text-center align-items-center bg-light border border-dark">
                     <div class="row justify-content-between bg-light">
                         <i class="col-6 mdi mdi-timelapse align-items-center p-3"></i>
-                        <p class="col-6 m-0 align-items-center p-3">+ <span>0</span></p>
+                        <p onclick="autoIncrease()" class="col-6 m-0 align-items-center p-3">+ <span id="autoModifier">0</span></p>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                                 <hr>
                                 <div class="row align-items-center">
                                     <div class="col-6 text-center align-items-center fs-4">
-                                        <div onclick="buyEquipment()" role="button" class="bg-primary rounded"><span>50</span><i class="mdi mdi-music-note-half"></i></div>
+                                        <div onclick="buyClickUpgrade('equipment')" role="button" class="bg-primary rounded"><span>50</span><i class="mdi mdi-music-note-half"></i></div>
                                     </div>
                                     <div class="col-6">
                                         <p class="m-0">New Equipment</p>
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="row align-items-center mt-3">
                                     <div class="col-6 text-center align-items-center fs-4">
-                                        <div onclick="" role="button" class="bg-primary rounded"><span>80</span><i class="mdi mdi-music-note-half"></i></div>
+                                        <div onclick="buyClickUpgrade('producer')" role="button" class="bg-primary rounded"><span>80</span><i class="mdi mdi-music-note-half"></i></div>
                                     </div>
                                     <div class="col-6 pb-3">
                                         <p class="m-0">Producer</p>
@@ -82,7 +82,7 @@
                                 <hr>
                                 <div class="row align-items-center">
                                     <div class="col-6 text-center align-items-center fs-4">
-                                        <div onclick="" role="button" class="bg-primary rounded"><span>500</span><i class="mdi mdi-music-note-half"></i></div>
+                                        <div onclick="buyHarrison()" role="button" class="bg-primary rounded"><span>500</span><i class="mdi mdi-music-note-half"></i></div>
                                     </div>
                                     <div class="col-6">
                                         <p class="m-0">George Harrison Clone</p>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="row align-items-center mt-3">
                                     <div class="col-6 text-center align-items-center fs-4">
-                                        <div onclick="" role="button" class="bg-primary rounded"><span>2000</span><i class="mdi mdi-music-note-half"></i></div>
+                                        <div onclick="buyStudio()" role="button" class="bg-primary rounded"><span>2000</span><i class="mdi mdi-music-note-half"></i></div>
                                     </div>
                                     <div class="col-6 pb-3">
                                         <p class="m-0">Recording Studio</p>
@@ -107,12 +107,12 @@
                                 <p class="pt-3 fs-3">Click Stats</p>
                                 <hr>
                                 <div class="row align-items-center p-2">
-                                    <div id="equipQuantity" class="col-4 text-center border border-dark fs-4 rounded bg-success-subtle">0</div>
+                                    <div id="equipmentQuantity" class="clickUpgrade col-4 text-center border border-dark fs-4 rounded bg-success-subtle">0</div>
                                     <div class="col-4 text-center">Equip +</div>
                                     <div class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
                                 </div>
                                 <div class="row align-items-center p-2 mt-3">
-                                    <div id="producerQuantity" class="col-4 text-center border border-dark fs-4 rounded bg-success-subtle">0</div>
+                                    <div id="producerQuantity" class="clickUpgrade col-4 text-center border border-dark fs-4 rounded bg-success-subtle">0</div>
                                     <div class="col-4 text-center">Producer +</div>
                                     <div class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
                                 </div>
