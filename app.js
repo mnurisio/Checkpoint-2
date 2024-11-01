@@ -44,24 +44,11 @@ let autoUpgrades = [
 //#region Logic
 
 function mine(){
-    notes += calcClickModifier()
+    // notes += calcClickModifier()
+    notes += calcAutoModifier()
     drawMine()
 }
-    
-// function buyEquipment(){
-//     let equipment = clickUpgrades[0]
-//     equipment.quantity++
-//     notes -= equipment.price
-//     drawClickUpgradeQuant()
-//     clickIncrease()
-// }
-// function buyProducer(){
-//     let producer = clickUpgrades[1]
-//     producer.quantity++
-//     notes -= producer.price
-//     drawClickUpgradeQuant()
-//     clickIncrease()
-// }
+
 
 function buyClickUpgrade(itemName){
     const upgrade = clickUpgrades.find(item => item.name == itemName)
@@ -70,32 +57,35 @@ function buyClickUpgrade(itemName){
 
     drawClickUpgradeQuant()
     drawClickModifier()
-    // clickIncrease()
 }
 
-function buyHarrison(){
-    let harrison = autoUpgrades[0]
-    harrison.quantity++
-    notes -= harrison.price
-    drawHarrisonQuant()
-    autoIncrease()
-}
-function buyStudio(){
-    let studio = autoUpgrades[1]
-    studio.quantity++
-    notes -= studio.price
-    drawStudioQuant()
-    autoIncrease()
+function buyAutoUpgrade(itemName){
+    const upgrade = autoUpgrades.find(item => item.name == itemName)
+    upgrade.quantity++
+    notes -= upgrade.price
 
+    drawAutoUpgradeQuant()
+    drawAutoModifier()
 }
 
-// function clickIncrease (){
-//    let clickModifier = calcClickModifier()
-//     drawClickModifier()
+// function buyHarrison(){
+//     let harrison = autoUpgrades[0]
+//     harrison.quantity++
+//     notes -= harrison.price
+//     drawHarrisonQuant()
+//     autoIncrease()
+// }
+// function buyStudio(){
+//     let studio = autoUpgrades[1]
+//     studio.quantity++
+//     notes -= studio.price
+//     drawStudioQuant()
+//     autoIncrease()
+
 // }
 
+
 function autoIncrease (){
-    
     for(i = 0; i < autoUpgrades.length; i++){
         let upgrade = autoUpgrades[i]
         if(upgrade.quantity > 0){
@@ -116,6 +106,16 @@ function calcClickModifier(){
     } return clickModifier
 }
 
+function calcAutoModifier(){
+    let autoModifier = 0
+    for(i = 0; i < autoUpgrades.length; i++){
+        let upgrade = autoUpgrades[i]
+        if(upgrade.quantity > 0){
+        autoModifier += Math.floor(upgrade.quantity * upgrade.bonus)
+        }
+    } return autoModifier
+}
+
 //#endregion Logic
 
 //#region Graphics
@@ -125,18 +125,6 @@ function drawMine(){
     notesElem.innerText = notes.toString()
 }
 
-// function drawEquipQuant (){
-//     const equipQuantity = clickUpgrades[0]
-//     let equipElem = document.getElementById('equipQuantity')
-//     equipElem.innerText = equipQuantity.quantity.toString()
-    
-// }
-// function drawProducerQuant (){
-//     const ProducerQuantity = clickUpgrades[1]
-//     let ProducerElem = document.getElementById('producerQuantity')
-//     ProducerElem.innerText = ProducerQuantity.quantity.toString()
-    
-// }
 
 function drawClickUpgradeQuant(){
     for(let i = 0; i < clickUpgrades.length; i++) {
@@ -148,31 +136,39 @@ function drawClickUpgradeQuant(){
     
 }
 
-function drawHarrisonQuant (){
-    const HarrisonQuantity = autoUpgrades[0]
-    let HarrisonElem = document.getElementById('harrisonQuantity')
-    HarrisonElem.innerText = HarrisonQuantity.quantity.toString()
-    
+function drawAutoUpgradeQuant(){
+    for(let i = 0; i < autoUpgrades.length; i++) {
+        const upgrade = autoUpgrades[i]
+        const upgradeElem = document.getElementById(upgrade.name + 'Quantity')
+        upgradeElem.innerHTML = upgrade.quantity.toString()
 }
-function drawStudioQuant (){
-    const StudioQuantity = autoUpgrades[1]
-    let StudioElem = document.getElementById('studioQuantity')
-    StudioElem.innerText = StudioQuantity.quantity.toString()
-    
 }
+
+// function drawHarrisonQuant (){
+//     const HarrisonQuantity = autoUpgrades[0]
+//     let HarrisonElem = document.getElementById('harrisonQuantity')
+//     HarrisonElem.innerText = HarrisonQuantity.quantity.toString()
+    
+// }
+// function drawStudioQuant (){
+//     const StudioQuantity = autoUpgrades[1]
+//     let StudioElem = document.getElementById('studioQuantity')
+//     StudioElem.innerText = StudioQuantity.quantity.toString()
+// }
 
 
 function drawClickModifier(){
     let clickModifier = calcClickModifier()
     let ModElem = document.getElementById('clickModifier')
     ModElem.innerText = clickModifier.toString()
-    console.log('click increase', clickModifier);
-    
+ 
 }
 
 function drawAutoModifier(){
+    let autoModifier = calcAutoModifier()
     let ModElem = document.getElementById('autoModifier')
     ModElem.innerText = autoModifier.toString()
+    console.log('auto increase', autoModifier);
 }
 
 //#endregion Graphics
