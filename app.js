@@ -4,7 +4,7 @@
 //#region State
 
 let notes = 0
-let clickModifier = 1
+// let clickModifier = 1
 let autoModifier = 0
 
 
@@ -44,9 +44,8 @@ let autoUpgrades = [
 //#region Logic
 
 function mine(){
-    notes++
+    notes += calcClickModifier()
     drawMine()
-    console.log('mined notes', notes);
 }
     
 // function buyEquipment(){
@@ -70,7 +69,8 @@ function buyClickUpgrade(itemName){
     notes -= upgrade.price
 
     drawClickUpgradeQuant()
-    clickIncrease()
+    drawClickModifier()
+    // clickIncrease()
 }
 
 function buyHarrison(){
@@ -89,17 +89,10 @@ function buyStudio(){
 
 }
 
-function clickIncrease (){
-    for(i = 0; i < clickUpgrades.length; i++){
-        let upgrade = clickUpgrades[i]
-        if(upgrade.quantity > 0){
-        clickModifier += Math.floor(upgrade.quantity * upgrade.bonus)
-        }
-        console.log('click increase', clickModifier);
-        
-    }
-    drawClickModifier()
-}
+// function clickIncrease (){
+//    let clickModifier = calcClickModifier()
+//     drawClickModifier()
+// }
 
 function autoIncrease (){
     
@@ -111,6 +104,16 @@ function autoIncrease (){
     }
     console.log('auto increase', autoModifier);
     drawAutoModifier()
+}
+
+function calcClickModifier(){
+    let clickModifier = 1
+    for(i = 0; i < clickUpgrades.length; i++){
+        let upgrade = clickUpgrades[i]
+        if(upgrade.quantity > 0){
+        clickModifier += Math.floor(upgrade.quantity * upgrade.bonus)
+        } 
+    } return clickModifier
 }
 
 //#endregion Logic
@@ -160,7 +163,7 @@ function drawStudioQuant (){
 
 
 function drawClickModifier(){
-    
+    let clickModifier = calcClickModifier()
     let ModElem = document.getElementById('clickModifier')
     ModElem.innerText = clickModifier.toString()
     console.log('click increase', clickModifier);
@@ -168,7 +171,6 @@ function drawClickModifier(){
 }
 
 function drawAutoModifier(){
-
     let ModElem = document.getElementById('autoModifier')
     ModElem.innerText = autoModifier.toString()
 }
