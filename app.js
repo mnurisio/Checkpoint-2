@@ -1,6 +1,7 @@
 //#region State
 
 let notes = 0
+let autoModifier = 0
 
 let clickUpgrades = [
     {
