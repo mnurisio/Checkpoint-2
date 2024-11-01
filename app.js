@@ -201,7 +201,7 @@ function drawClickTotal(){
     for (let i = 0; i < clickUpgrades.length; i++) {
         const upgrade = clickUpgrades[i]
         const totalElem = document.getElementById(upgrade.name + 'Total')
-        totalElem.innerText = upgrade.quantity.toString() * upgrade.bonus.toString()
+        totalElem.innerText = upgrade.quantity * upgrade.bonus
     }
 }
 
@@ -209,7 +209,7 @@ function drawAutoTotal(){
     for (let i = 0; i < autoUpgrades.length; i++) {
         const upgrade = autoUpgrades[i]
         const totalElem = document.getElementById(upgrade.name + 'Total')
-        totalElem.innerText = upgrade.quantity.toString() * upgrade.bonus.toString()
+        totalElem.innerText = upgrade.quantity * upgrade.bonus
     }
 }
 
