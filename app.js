@@ -72,6 +72,7 @@ function buyClickUpgrade(itemName) {
     drawClickModifier()
     drawMine()
     drawClickPriceModifier()
+    drawClickTotal()
 }
 
 function buyAutoUpgrade(itemName) {
@@ -91,6 +92,8 @@ function buyAutoUpgrade(itemName) {
     drawAutoModifier()
     drawMine()
     drawAutoPriceModifier()
+    drawAutoTotal()
+
 }
 
 function autoIncrease() {
@@ -101,6 +104,26 @@ function autoIncrease() {
         }
     }
     drawAutoModifier()
+}
+
+function calcClickTotal(){
+    let total = 0
+    for (let i = 0; i < clickUpgrades.length; i++){
+        let upgrade = clickUpgrades[i]
+        if (upgrade.quantity > 0){
+            total += Math.floor(upgrade.quantity * upgrade.bonus)
+        }
+    } return total
+}
+
+function calcAutoTotal(){
+    let total = 0
+    for (let i = 0; i < autoUpgrades.length; i++){
+        let upgrade = autoUpgrades[i]
+        if (upgrade.quantity > 0){
+            total += Math.floor(upgrade.quantity * upgrade.bonus)
+        }
+    } return total
 }
 
 function calcClickModifier() {
@@ -123,16 +146,6 @@ function calcAutoModifier() {
     } return autoModifier
 }
 
-function calcClickPriceModifier() {
-    for (let i = 0; i < clickUpgrades.length; i++) {
-        let upgrade = clickUpgrades[i]
-        if (upgrade.quantity > 0) {
-            upgrade.price += Math.floor(upgrade.price * Math.random())
-        }
-        console.log('price change', upgrade.price);
-    }
-    drawClickPriceModifier()
-}
 
 //#endregion Logic
 
@@ -171,14 +184,13 @@ function drawAutoModifier() {
     let autoModifier = calcAutoModifier()
     let ModElem = document.getElementById('autoModifier')
     ModElem.innerText = autoModifier.toString()
-    console.log('auto increase', autoModifier);
 }
 
 function drawClickPriceModifier() {
     for (let i = 0; i < clickUpgrades.length; i++) {
         const upgrade = clickUpgrades[i]
         const priceElem = document.getElementById(upgrade.name + 'Price')
-        priceElem.innerHTML = upgrade.price.toString()
+        priceElem.innerText = upgrade.price.toString()
     }
 }
 
@@ -186,7 +198,23 @@ function drawAutoPriceModifier() {
     for (let i = 0; i < autoUpgrades.length; i++) {
         const upgrade = autoUpgrades[i]
         const priceElem = document.getElementById(upgrade.name + 'Price')
-        priceElem.innerHTML = upgrade.price.toString()
+        priceElem.innerText = upgrade.price.toString()
+    }
+}
+
+function drawClickTotal(){
+    for (let i = 0; i < clickUpgrades.length; i++) {
+        const upgrade = clickUpgrades[i]
+        const totalElem = document.getElementById(upgrade.name + 'Total')
+        totalElem.innerText = upgrade.quantity.toString() * upgrade.bonus.toString()
+    }
+}
+
+function drawAutoTotal(){
+    for (let i = 0; i < autoUpgrades.length; i++) {
+        const upgrade = autoUpgrades[i]
+        const totalElem = document.getElementById(upgrade.name + 'Total')
+        totalElem.innerText = upgrade.quantity.toString() * upgrade.bonus.toString()
     }
 }
 
