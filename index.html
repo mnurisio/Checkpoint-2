@@ -27,7 +27,7 @@
         <section class="container-fluid">
             <div class="row">
                 <div class="text-center pt-1">
-                    <i onclick="mine()" role="button" class="mdi mdi-record-circle-outline text-light vinyl"></i>
+                    <i onclick="mine()" role="button" class="mdi mdi-music-circle-outline text-light vinyl"></i>
                 </div>
             </div>
         </section>
@@ -53,113 +53,110 @@
                 </div>
             </div>
         </section>
-        <footer>
-            <section class="bangers-regular container-fluid bg-light">
-                <div class="row">
-                    <div class="col-6 border border-dark">
-                        <div class="row">
-                            <div class="col-6">
-                                <p class="pt-3 fs-3">Click Upgrades</p>
-                                <hr>
-                                <div class="row align-items-center">
-                                    <div class="col-6 text-center align-items-center fs-4">
-                                        <div onclick="buyClickUpgrade('equipment')" role="button"
-                                            class="bg-warning rounded"><span id="equipmentPrice">50</span><i
-                                                class="mdi mdi-music-note-half"></i></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="m-0">New Equipment</p>
-                                        <p class="m-0">+3</p>
-                                    </div>
+    </main>
+    <footer>
+        <section class="bangers-regular container-fluid bg-light">
+            <div class="row">
+                <div class="col-6 border border-dark">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="pt-3 fs-3">Click Upgrades</p>
+                            <hr>
+                            <div class="row align-items-center">
+                                <div class="col-6 text-center align-items-center fs-4">
+                                    <div onclick="buyClickUpgrade('equipment')" role="button"
+                                        class="bg-warning rounded"><span id="equipmentPrice">50</span><i
+                                            class="mdi mdi-music-note-half"></i></div>
                                 </div>
-                                <div class="row align-items-center mt-3">
-                                    <div class="col-6 text-center align-items-center fs-4">
-                                        <div onclick="buyClickUpgrade('producer')" role="button"
-                                            class="bg-warning rounded"><span id="producerPrice">80</span><i
-                                                class="mdi mdi-music-note-half"></i></div>
-                                    </div>
-                                    <div class="col-6 pb-3">
-                                        <p class="m-0">Producer</p>
-                                        <p class="m-0">+15</p>
-                                    </div>
+                                <div class="col-6">
+                                    <p class="m-0">New Equipment</p>
+                                    <p class="m-0">+3</p>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <p class="pt-3 fs-3">Auto-Upgrades</p>
-                                <hr>
-                                <div class="row align-items-center">
-                                    <div class="col-6 text-center align-items-center fs-4">
-                                        <div onclick="buyAutoUpgrade('harrison')" role="button"
-                                            class="bg-warning rounded"><span id="harrisonPrice">500</span><i
-                                                class="mdi mdi-music-note-half"></i></div>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="m-0">George Harrison Clone</p>
-                                        <p class="m-0">+20 / 5s</p>
-                                    </div>
+                            <div class="row align-items-center mt-3">
+                                <div class="col-6 text-center align-items-center fs-4">
+                                    <div onclick="buyClickUpgrade('producer')" role="button" class="bg-warning rounded">
+                                        <span id="producerPrice">80</span><i class="mdi mdi-music-note-half"></i></div>
                                 </div>
-                                <div class="row align-items-center mt-3">
-                                    <div class="col-6 text-center align-items-center fs-4">
-                                        <div onclick="buyAutoUpgrade('studio')" role="button"
-                                            class="bg-warning rounded"><span id="studioPrice">2000</span><i
-                                                class="mdi mdi-music-note-half"></i></div>
-                                    </div>
-                                    <div class="col-6 pb-3">
-                                        <p class="m-0">Recording Studio</p>
-                                        <p class="m-0">+50 / 5s</p>
-                                    </div>
+                                <div class="col-6 pb-3">
+                                    <p class="m-0">Producer</p>
+                                    <p class="m-0">+15</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6 border border-dark">
-                        <div class="row">
-                            <div class="col-6">
-                                <p class="pt-3 fs-3">Click Stats</p>
-                                <hr>
-                                <div class="row align-items-center p-2">
-                                    <div id="equipmentQuantity"
-                                        class="clickUpgrade col-4 text-center border border-dark fs-4 rounded bg-success-subtle">
-                                        0</div>
-                                    <div class="col-4 text-center">Equip +</div>
-                                    <div id="equipmentTotal"
-                                        class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
+                        <div class="col-6">
+                            <p class="pt-3 fs-3">Auto-Upgrades</p>
+                            <hr>
+                            <div class="row align-items-center">
+                                <div class="col-6 text-center align-items-center fs-4">
+                                    <div onclick="buyAutoUpgrade('harrison')" role="button" class="bg-warning rounded">
+                                        <span id="harrisonPrice">500</span><i class="mdi mdi-music-note-half"></i></div>
                                 </div>
-                                <div class="row align-items-center p-2 mt-3">
-                                    <div id="producerQuantity"
-                                        class="clickUpgrade col-4 text-center border border-dark fs-4 rounded bg-success-subtle">
-                                        0</div>
-                                    <div class="col-4 text-center">Producer +</div>
-                                    <div id="producerTotal"
-                                        class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
+                                <div class="col-6">
+                                    <p class="m-0">George Harrison Clone</p>
+                                    <p class="m-0">+20 / 5s</p>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <p class="pt-3 fs-3">Auto-Stats</p>
-                                <hr>
-                                <div class="row align-items-center p-2">
-                                    <div id="harrisonQuantity"
-                                        class="col-4 text-center border border-dark fs-4 rounded bg-success-subtle">0
-                                    </div>
-                                    <div class="col-4 text-center">Harrison +</div>
-                                    <div id="harrisonTotal"
-                                        class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
+                            <div class="row align-items-center mt-3">
+                                <div class="col-6 text-center align-items-center fs-4">
+                                    <div onclick="buyAutoUpgrade('studio')" role="button" class="bg-warning rounded">
+                                        <span id="studioPrice">2000</span><i class="mdi mdi-music-note-half"></i></div>
                                 </div>
-                                <div class="row align-items-center p-2 mt-3">
-                                    <div id="studioQuantity"
-                                        class="col-4 text-center border border-dark fs-4 rounded bg-success-subtle">0
-                                    </div>
-                                    <div class="col-4 text-center">Studio +</div>
-                                    <div id="studioTotal"
-                                        class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
+                                <div class="col-6 pb-3">
+                                    <p class="m-0">Recording Studio</p>
+                                    <p class="m-0">+50 / 5s</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </footer>
-    </main>
+                <div class="col-6 border border-dark">
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="pt-3 fs-3">Click Stats</p>
+                            <hr>
+                            <div class="row align-items-center p-2">
+                                <div id="equipmentQuantity"
+                                    class="clickUpgrade col-4 text-center border border-dark fs-4 rounded bg-success-subtle">
+                                    0</div>
+                                <div class="col-4 text-center">Equip +</div>
+                                <div id="equipmentTotal"
+                                    class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
+                            </div>
+                            <div class="row align-items-center p-2 mt-3">
+                                <div id="producerQuantity"
+                                    class="clickUpgrade col-4 text-center border border-dark fs-4 rounded bg-success-subtle">
+                                    0</div>
+                                <div class="col-4 text-center">Producer +</div>
+                                <div id="producerTotal"
+                                    class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <p class="pt-3 fs-3">Auto-Stats</p>
+                            <hr>
+                            <div class="row align-items-center p-2">
+                                <div id="harrisonQuantity"
+                                    class="col-4 text-center border border-dark fs-4 rounded bg-success-subtle">0
+                                </div>
+                                <div class="col-4 text-center">Harrison +</div>
+                                <div id="harrisonTotal"
+                                    class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
+                            </div>
+                            <div class="row align-items-center p-2 mt-3">
+                                <div id="studioQuantity"
+                                    class="col-4 text-center border border-dark fs-4 rounded bg-success-subtle">0
+                                </div>
+                                <div class="col-4 text-center">Studio +</div>
+                                <div id="studioTotal"
+                                    class="col-4 text-center border border-dark fs-4 rounded bg-success">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
 
 
     <script src="app.js"></script>

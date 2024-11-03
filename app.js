@@ -213,7 +213,7 @@ function drawAutoTotal(){
     }
 }
 
-setInterval(autoMine, 5000)
+setInterval(autoMine, 4000)
 //#endregion Graphics
 
 
